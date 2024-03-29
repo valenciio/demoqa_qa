@@ -1,19 +1,23 @@
-plugins {
-    id("java")
-}
+import jdk.internal.vm.vector.VectorSupport.test
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+plugins {
+    id 'java-library'
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation (
+            "com.codeborne:selenide:6.16.0",
+            "org.junit.jupiter:junit-jupiter:5.9.3")
 }
 
-tasks.test {
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+test {
     useJUnitPlatform()
 }
