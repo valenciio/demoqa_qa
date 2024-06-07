@@ -1,11 +1,11 @@
-package pages;
+package page;
 
 import org.junit.jupiter.api.Test;
 
 public class DemoqaTestWithPageObjects extends TestBase {
     @Test
     void fillPracticeFormTest() {
-        String userName = "Valentin";
+        //String userName = "Valentin";
 
         registrationPage.openPage()
                 .setFirstName("Valentin")
@@ -15,7 +15,7 @@ public class DemoqaTestWithPageObjects extends TestBase {
                 .setNumber("9876543210")
                 .setBirthDate("23", "December", "1994")
                 .setSubject("Arts")
-                .setHobbies("Sports")
+                .setHobby("Sports")
                 .uploadPicture("cat.jpg")
                 .setCurrentAddress("Moscow")
                 .setState("NCR")

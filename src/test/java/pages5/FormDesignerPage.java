@@ -1,40 +1,42 @@
 package pages5;
+import page.TestBase;
 
-import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class FormDesignerPage {
-    public void openFormDesignerPage() {
+public class FormDesignerPage extends TestBase {
+    public FormDesignerPage openFormDesignerPage() {
         open("https://formdesigner.ru/");
+        return this;
     }
 
-    public void switchToFrame() {
+    public FormDesignerPage switchToFrame() {
         switchTo().frame(0);
+        return this;
     }
 
-    public void fillField25(String value) {
-        $("#field25").click();
+    public FormDesignerPage fillField25(String value) {
         $("#field25").setValue(value);
+        return this;
     }
 
-    public void fillField26(String value) {
-        $("#field26").click();
+    public FormDesignerPage fillField26(String value) {
         $("#field26").setValue(value);
+        return this;
     }
 
-    public void fillField27(String value) {
-        $("#field27").click();
+    public FormDesignerPage fillField27(String value) {
         $("#field27").setValue(value);
+        return this;
     }
 
-    public void fillField28(String value) {
-        $("#field28").click();
+    public FormDesignerPage fillField28(String value) {
         $("#field28").setValue(value);
+        return this;
     }
-    public void submitForm() {
-        $(byName("submit")).click();
+    public FormDesignerPage submitForm() {
         $(".success_message success_message-top").
                 $(byText("Спасибо, Ваше сообщение успешно отправлено"));
+        return this;
     }
 }

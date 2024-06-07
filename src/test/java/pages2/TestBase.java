@@ -1,4 +1,4 @@
-package pages;
+package pages2;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import java.io.File;
 
 public class TestBase {
-    RegistrationPage registrationPage = new RegistrationPage();
+    FormDesignerPage formDesignerPage = new FormDesignerPage();
     @BeforeAll
     static void beforeAll() {
         //Configuration.browser = "Firefox";
