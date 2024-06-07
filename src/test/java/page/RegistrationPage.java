@@ -1,7 +1,4 @@
-package pages;
-
-import pages.components.CalendarComponent;
-import pages.components.RegistrationResultsModal;
+package page;
 
 import java.io.File;
 
@@ -12,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
     RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
-    private final String titleText = "Student Registration Form";
+    private static final String titleText = "Student Registration Form";
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text(titleText));
@@ -58,7 +55,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setHobbies(String value) {
+    public RegistrationPage setHobby(String value) {
         $("#hobbies-checkbox-1").sibling(0).click();
 
         return this;
@@ -81,6 +78,7 @@ public class RegistrationPage {
 
         return this;
     }
+
     public RegistrationPage setCity(String value) {
         $("#city").click();
         $("#stateCity-wrapper").$(byText(value)).click();
@@ -93,7 +91,7 @@ public class RegistrationPage {
         return this;
     }
     public RegistrationPage verifyResultsModalAppears() {
-        registrationResultsModal.verifyModalAppears();
+        RegistrationResultsModal.verifyModalAppears();
 
         return this;
     }

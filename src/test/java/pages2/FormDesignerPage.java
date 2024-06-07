@@ -1,53 +1,64 @@
 package pages2;
 
 import com.codeborne.selenide.SelenideElement;
+import page.TestBase;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
 
-public class FormDesignerPage {
-    public SelenideElement formTemplate(int index) {
+public class FormDesignerPage extends TestBase {
+
+
+    public FormDesignerPage formTemplate(int index) {
+        SelenideElement element = $(".form-template:nth-child(" + index + ") > .form-template__name");
+        element.click();
+        return this;
+    }
+
+    public SelenideElement formTemplate111(int index) {
         return $(".form-template:nth-child(" + index + ") > .form-template__name");
+
     }
 
-    public void switchToFrame(int index) {
+    public FormDesignerPage switchToFrame(int index) {
         switchTo().frame(index);
+        return this;
     }
 
-    public void fillField(String name, String value) {
-        $(byName(name)).click();
+    public FormDesignerPage fillField(String name, String value) {
         $(byName(name)).setValue(value);
+        return this;
     }
 
-    public void fillEmailField(String value) {
-        $(byId("field2")).click();
+    public FormDesignerPage fillEmailField(String value) {
         $(byId("field2")).setValue(value);
+        return this;
     }
 
-    public void fillNumberField(String value) {
-        $(byId("field3")).click();
+    public FormDesignerPage fillNumberField(String value) {
         $(byId("field3")).setValue(value);
+        return this;
     }
 
-    public void selectProduct(String product) {
-        $(byId("field4")).click();
+    public FormDesignerPage selectProduct(String product) {
         $(byId("field4")).selectOption(product);
+        return this;
     }
 
-    public void fillQuantityField(String value) {
-        $(byId("field5")).click();
+    public FormDesignerPage fillQuantityField(String value) {
         $(byId("field5")).setValue(value);
+        return this;
     }
 
-    public void fillAgeField(String value) {
-        $(byId("field6")).click();
+    public FormDesignerPage fillAgeField(String value) {
         $(byId("field6")).setValue(value);
+        return this;
     }
 
-    public void submitForm() {
-        $(byName("submit")).click();
+    public FormDesignerPage submitForm() {
         $(".success_message.success_message-top").
                 $(byText("Спасибо, Ваше сообщение успешно отправлено"));
+        return this;
     }
 }

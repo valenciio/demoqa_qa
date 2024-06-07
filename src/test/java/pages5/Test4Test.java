@@ -3,27 +3,26 @@ package pages5;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import com.codeborne.selenide.Configuration;
-import pages4.MTSPage;
+import page.TestBase;
 
-public class Test4Test {
-    private FormDesignerPage formDesignerPage;
-
+public class Test4Test extends TestBase {
+    FormDesignerPage formDesignerPage = new FormDesignerPage();
     @BeforeEach
     public void setUp() {
         Configuration.browser = "Firefox";
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
-        formDesignerPage = new FormDesignerPage();
     }
 
     @Test
     public void test4() {
-        formDesignerPage.openFormDesignerPage();
-        formDesignerPage.switchToFrame();
-        formDesignerPage.fillField25("valentin");
-        formDesignerPage.fillField26("selezenev@mail.ru");
-        formDesignerPage.fillField27("test");
-        formDesignerPage.fillField28("hello world");
-        formDesignerPage.submitForm();
+        formDesignerPage
+                .openFormDesignerPage()
+                .switchToFrame()
+                .fillField25("valentin")
+                .fillField26("selezenev@mail.ru")
+                .fillField27("test")
+                .fillField28("hello world")
+                .submitForm();
     }
 }
